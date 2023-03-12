@@ -15,7 +15,7 @@ class CepRepositoryImpl implements CepRepository {
   });
 
   @override
-  Future<Cep> getCep(int cep) async {
+  Future<Cep> getCep(String cep) async {
     final cachedCep = await localDataSource.getCep(cep);
     if (cachedCep != null) return cachedCep;
 

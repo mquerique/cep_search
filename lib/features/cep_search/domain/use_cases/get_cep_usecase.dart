@@ -7,6 +7,6 @@ class GetCepUsecase {
   const GetCepUsecase(this.repository);
 
   Future<Cep> call({required String cep}) {
-    return repository.getCep(int.parse(cep));
+    return repository.getCep(cep);
   }
 }

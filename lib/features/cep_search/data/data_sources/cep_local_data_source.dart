@@ -12,8 +12,8 @@ class CepLocalDataSource {
     return await Hive.openBox<CepModel>('cep');
   }
 
-  Future<Cep?> getCep(int cep) async {
-    return cepBox.get(cep.toString())?.toEntity();
+  Future<Cep?> getCep(String cep) async {
+    return cepBox.get(cep)?.toEntity();
   }
 
   Future<void> addCep(Cep cep) async {

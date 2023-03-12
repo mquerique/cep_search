@@ -1,1 +1,1 @@
-const kApiBaseUrl = 'https://viacep.com.br/ws/';
+const kApiBaseUrl = 'https://viacep.com.br/ws';

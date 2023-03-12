@@ -15,7 +15,7 @@ class CepRemoteDataSource {
     required this.client,
   });
 
-  Future<Cep> getCep(int cep) async {
+  Future<Cep> getCep(String cep) async {
     final url = '$kApiBaseUrl/$cep/json/';
 
     final response = await client.get(
