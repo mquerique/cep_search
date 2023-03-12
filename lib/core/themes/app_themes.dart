@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 final appThemeData = {
-  AppTheme.light: _baseTheme(Brightness.light).copyWith(),
-  AppTheme.dark: _baseTheme(Brightness.dark).copyWith(),
+  AppTheme.light: _baseTheme(Brightness.light),
+  AppTheme.dark: _baseTheme(Brightness.dark),
 };
 
 ThemeData _baseTheme(Brightness brightness) {
@@ -11,8 +11,8 @@ ThemeData _baseTheme(Brightness brightness) {
     colorScheme: theme.colorScheme.copyWith(
       primary: const Color(0xFFFFDE58),
       secondary: const Color(0xFFFFDE58),
-      onSecondary: Colors.white,
-      onPrimary: Colors.white,
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
     ),
   );
 }

@@ -1,4 +1,22 @@
 {
   "appTitle": "Busca CEP",
-  "helloWorld": "Olá Mundo"
+  "helloWorld": "Olá Mundo",
+  "searchCep": "Buscar um CEP",
+  "cepDetails": "Detalhes sobre o CEP",
+  "search": "Buscar",
+  "lightMode": "Modo claro",
+  "darkMode": "Modo escuro",
+  "cep": "CEP",
+  "streetName": "Logradouro",
+  "complement": "Complemento",
+  "neighborhood": "Bairro",
+  "city": "Cidade",
+  "uf": "UF",
+  "ibge": "IBGE",
+  "areaCode": "DDD",
+  "siafi": "SIAFI",
+  "errFieldRequired": "Campo obrigatório",
+  "errInvalidFormat": "Formato inválido",
+  "errSomethingWentWrong": "Oops, parece que algo deu errado.",
+  "errCepNotFound": "CEP não encontrado"
 }

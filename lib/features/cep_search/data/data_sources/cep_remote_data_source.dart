@@ -24,7 +24,11 @@ class CepRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return CepModel.fromJson(json.decode(response.body));
+      final data = json.decode(response.body);
+      if (data['erro'] == true) {
+        throw CepNotFoundException();
+      }
+      return CepModel.fromJson(data);
     } else {
       throw ServerException();
     }

@@ -1,4 +1,22 @@
 {
-  "appTitle": "Cep Search",
-  "helloWorld": "Hello World"
+  "appTitle": "CEP Search",
+  "helloWorld": "Hello World",
+  "searchCep": "Search a CEP",
+  "cepDetails": "CEP Details",
+  "search": "Search",
+  "lightMode": "Light mode",
+  "darkMode": "Dark mode",
+  "cep": "CEP",
+  "streetName": "Street name",
+  "complement": "Complement",
+  "neighborhood": "Neighborhood",
+  "city": "City",
+  "uf": "State",
+  "ibge": "IBGE",
+  "areaCode": "Area code",
+  "siafi": "SIAFI",
+  "errFieldRequired": "Field required",
+  "errInvalidFormat": "Invalid format",
+  "errSomethingWentWrong": "Oops, something went wrong",
+  "errCepNotFound": "CEP not found"
 }

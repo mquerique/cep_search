@@ -1,6 +1,9 @@
 import 'package:cep_search/core/themes/bloc/theme_bloc.dart';
+import 'package:cep_search/features/cep_search/presentation/blocs/cep_bloc.dart';
+import 'package:cep_search/features/cep_search/presentation/screens/cep_search_screen.dart';
 import 'package:cep_search/service_locator.dart' as sl;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -15,9 +18,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => sl.getIt<ThemeBloc>()),
+        BlocProvider(create: (_) => sl.getIt<CepBloc>()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: _buildApp,
@@ -34,20 +40,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: state.themeData,
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(AppLocalizations.of(context)!.helloWorld),
-      ),
+      home: const CepSearchScreen(),
     );
   }
 }
