@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:cep_search/core/constants/constants.dart';
 import 'package:cep_search/core/exceptions/exceptions.dart';
+import 'package:cep_search/features/cep_search/data/data_sources/cep_local_data_source.dart';
 import 'package:cep_search/features/cep_search/data/models/cep_model.dart';
 import 'package:cep_search/features/cep_search/domain/entities/cep.dart';
+import 'package:cep_search/service_locator.dart';
 import 'package:http/http.dart' as http;
 
 class CepRemoteDataSource {
@@ -28,7 +30,9 @@ class CepRemoteDataSource {
       if (data['erro'] == true) {
         throw CepNotFoundException();
       }
-      return CepModel.fromJson(data);
+      final cep = CepModel.fromJson(data).toEntity();
+      await getIt<CepLocalDataSource>().addCep(cep);
+      return cep;
     } else {
       throw ServerException();
     }

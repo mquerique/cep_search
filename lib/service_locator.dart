@@ -1,4 +1,5 @@
 import 'package:cep_search/core/themes/bloc/theme_bloc.dart';
+import 'package:cep_search/features/cep_search/data/data_sources/cep_local_data_source.dart';
 import 'package:cep_search/features/cep_search/data/data_sources/cep_remote_data_source.dart';
 import 'package:cep_search/features/cep_search/data/repositories/cep_repository_impl.dart';
 import 'package:cep_search/features/cep_search/domain/repositories/cep_repository.dart';
@@ -19,11 +20,19 @@ Future<void> setup() async {
 
   // Repositories
   getIt.registerLazySingleton<CepRepository>(
-      () => CepRepositoryImpl(remoteDataSource: getIt()));
+    () => CepRepositoryImpl(
+      remoteDataSource: getIt(),
+      localDataSource: getIt(),
+    ),
+  );
 
   // Data sources
   getIt.registerLazySingleton<CepRemoteDataSource>(
-      () => CepRemoteDataSource(client: getIt()));
+    () => CepRemoteDataSource(client: getIt()),
+  );
+  getIt.registerSingletonAsync<CepLocalDataSource>(() async {
+    return CepLocalDataSource(cepBox: await CepLocalDataSource.init());
+  });
 
   // Extras
   getIt.registerLazySingleton(() => http.Client());
